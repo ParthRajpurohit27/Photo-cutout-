@@ -30,7 +30,7 @@ export const CONFIG: SiteConfig = {
   geminiApiKey: "AQ.Ab8RN6IOJ5bleYB2kyOshcqX2VyBSbrJ4DLdtfiL-_U_ogSrqw",
   geminiModel: "gemini-2.5-flash-image",
 
-  basePhoto: "public/me.jpg",
+  basePhoto: "photos/me.jpg",
   baseMaxSide: 3000,
   visitorMaxSide: 1600,
 
