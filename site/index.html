@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parth's 18th Birthday</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <p class="tag">🎂 Parth's 18th Birthday</p>
+    <h1>Take a photo with me</h1>
+    <p class="sub">Upload your full photo and get a picture of us together.</p>
+
+    <input id="file" type="file" accept="image/*" hidden>
+    <label id="pick" class="btn" for="file">Upload your full photo here</label>
+
+    <div id="barWrap" hidden>
+      <div class="bar-wrap"><div id="bar" class="bar"></div></div>
+      <div class="meta"><span id="pct">0%</span><span id="eta"></span></div>
+    </div>
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <a id="download" class="btn download" hidden>Download photo</a>
+  </main>
+  <footer class="foot">Made with love by <a href="https://parth27.vercel.app" target="_blank" rel="noopener noreferrer">Parth Rajpurohit</a></footer>
+  <script type="module" src="dist/main.js"></script>
+</body>
+</html>

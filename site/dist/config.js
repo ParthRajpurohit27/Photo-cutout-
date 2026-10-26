@@ -1,0 +1,16 @@
+export const CONFIG = {
+    geminiApiKey: "AQ.Ab8RN6IOJ5bleYB2kyOshcqX2VyBSbrJ4DLdtfiL-_U_ogSrqw",
+    geminiModel: "gemini-2.5-flash-image",
+    basePhoto: "public/me.jpg",
+    baseMaxSide: 3000,
+    visitorMaxSide: 1600,
+    visitorSide: "left",
+    visitorCenterX: 0.27,
+    visitorHeightRatio: 0.845,
+    groundY: 0.955,
+    colorMatchStrength: 0.6,
+    imglyUrl: "https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.5.5/+esm",
+    visionUrl: "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/+esm",
+    visionWasmUrl: "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm",
+    poseModelUrl: "https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task",
+};
