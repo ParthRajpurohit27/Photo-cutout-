@@ -10,17 +10,23 @@ export async function requestBody(imageBase64, mimeType) {
     if (!CONFIG.geminiApiKey || CONFIG.geminiApiKey === "PASTE_GEMINI_KEY_HERE") {
         throw new Error("Gemini key is not set.");
     }
-    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${CONFIG.geminiModel}:generateContent`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "x-goog-api-key": CONFIG.geminiApiKey },
-        body: JSON.stringify({
-            contents: [{ parts: [{ text: PROMPT }, { inlineData: { mimeType, data: imageBase64 } }] }],
-            generationConfig: {
-                responseModalities: ["TEXT", "IMAGE"],
-                imageConfig: { aspectRatio: "9:16" },
-            },
-        }),
-    });
+    let res;
+    try {
+        res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${CONFIG.geminiModel}:generateContent`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "x-goog-api-key": CONFIG.geminiApiKey },
+            body: JSON.stringify({
+                contents: [{ parts: [{ text: PROMPT }, { inlineData: { mimeType, data: imageBase64 } }] }],
+                generationConfig: {
+                    responseModalities: ["TEXT", "IMAGE"],
+                    imageConfig: { aspectRatio: "9:16" },
+                },
+            }),
+        });
+    }
+    catch {
+        throw new Error("Internet ya Gemini se connection nahi ho paya.");
+    }
     let data;
     try {
         data = (await res.json());

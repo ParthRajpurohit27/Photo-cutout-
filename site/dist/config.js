@@ -1,5 +1,5 @@
 export const CONFIG = {
-    geminiApiKey: "AQ.Ab8RN6IOJ5bleYB2kyOshcqX2VyBSbrJ4DLdtfiL-_U_ogSrqw",
+    geminiApiKey: "AQ.Ab8RN6IOJ5bIeYB2kyOshcqX2VyBSbrJ4DLdtfiL-_U_ogSrqw",
     geminiModel: "gemini-2.5-flash-image",
     basePhoto: "photos/me.jpg",
     baseMaxSide: 3000,
@@ -9,6 +9,8 @@ export const CONFIG = {
     visitorHeightRatio: 0.845,
     groundY: 0.955,
     colorMatchStrength: 0.6,
+    bgModel: "medium",
+    estimatedModelMb: 85,
     imglyUrl: "https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.5.5/+esm",
     visionUrl: "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/+esm",
     visionWasmUrl: "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm",

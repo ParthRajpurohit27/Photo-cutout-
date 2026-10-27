@@ -1,4 +1,4 @@
-import { loadPose } from "./loaders.js";
+import { IMGLY_CONFIG, loadPose } from "./loaders.js";
 import { requestBody } from "./api.js";
 import { alphaBounds, blobToCanvas, canvasToBase64, canvasToBlob, cropCanvas, ctx2d, makeCanvas, scaleCanvas, } from "./imaging.js";
 /** [landmark indexes, fraction of full body height (from head-top) where that part sits] */
@@ -91,9 +91,7 @@ export async function extendBody(person, visibleFraction, imgly) {
     tg.fillRect(0, 0, CW, cutY);
     mg.drawImage(top, 0, 0);
     // Remove the white background of the completed full-body image.
-    const cutBlob = await imgly.removeBackground(await canvasToBlob(merged, "image/png"), {
-        output: { format: "image/png" },
-    });
+    const cutBlob = await imgly.removeBackground(await canvasToBlob(merged, "image/png"), IMGLY_CONFIG);
     const cut = await blobToCanvas(cutBlob);
     const b = alphaBounds(cut);
     if (!b)
