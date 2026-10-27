@@ -33,7 +33,7 @@ async function run(): Promise<void> {
     }
     const msg = data.error?.message ?? `HTTP ${res.status}`;
     const hint = key.startsWith("AQ.")
-      ? " Ye naye AQ. format ki key hai. Kuch accounts par ye browser/REST se kaam nahi karti. Google Cloud Console, APIs & Services, Credentials me jaakar naya API key (AIza…) banaiye aur use 'Generative Language API' tak restrict kijiye."
+      ? " Ye naye AQ. format ki key hai. Kuch accounts par ye browser/REST se kaam nahi karti. Google Cloud Console, APIs & Services, Credentials me jaakar naya API key (AIza…) banao aur use 'Generative Language API' tak restrict karo."
       : "";
     show(false, `Key nahi chali ❌ (HTTP ${res.status})`, `${msg}${hint}`);
   } catch (err) {

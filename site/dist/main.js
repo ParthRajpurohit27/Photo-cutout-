@@ -31,12 +31,12 @@ const scoreEl = el("score");
 const mascot = el("mascot");
 const MAX_UPLOAD_BYTES = 30 * 1024 * 1024;
 const STEPS = [
-    { id: "read", text: "Teri photo padh raha hu" },
+    { id: "read", text: "Tumhari photo padh raha hu" },
     { id: "model", text: "AI ko jagaya" },
     { id: "segment", text: "Background hata raha hu" },
     { id: "analyze", text: "Body check kar raha hu" },
     { id: "generate", text: "Neeche ki body bana raha hu" },
-    { id: "compose", text: "Tujhe mere saath khada kar raha hu" },
+    { id: "compose", text: "Tumhe mere saath khada kar raha hu" },
 ];
 const stepNodes = new Map();
 let baseCanvas = null;
@@ -136,7 +136,7 @@ async function handleFile(file) {
         return;
     if (!file.type.startsWith("image/")) {
         setMood("sad");
-        say("Ye image file nahi hai. Koi photo chuno.", true);
+        say("Ye image file nahi lag rahi. Koi photo chuno 🙏", true);
         return;
     }
     if (file.size > MAX_UPLOAD_BYTES) {
@@ -209,8 +209,8 @@ async function handleFile(file) {
         progressBox.hidden = true;
         setMood("happy");
         say(score > 0
-            ? `Taaaa-daaa! 🎉 Photo ready hai. Aur tune ${score} balloons phode, champion! 🏆`
-            : "Taaaa-daaa! 🎉 Teri photo mere saath ready hai. Download dabao!");
+            ? `Taaaa-daaa! 🎉 Photo ready hai. Aur tumne ${score} balloons phode, champion! 🏆`
+            : "Taaaa-daaa! 🎉 Tumhari photo mere saath ready hai. Download dabao!");
         celebrate();
     }
     catch (err) {
@@ -218,7 +218,7 @@ async function handleFile(file) {
         const msg = err instanceof Error ? err.message : "Kuch gadbad ho gayi.";
         progressBox.hidden = true;
         setMood("sad");
-        say(`${msg} Dobara try karo.`, true);
+        say(`${msg} Ek baar phir try karo 🙏`, true);
     }
     finally {
         window.clearInterval(timer);

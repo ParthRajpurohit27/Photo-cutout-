@@ -1,48 +1,48 @@
 import { burst } from "./confetti.js";
 
-/** Each run picks one story at random, so waiting is different every time. Polite ("aap") with light teasing. */
+/** Each run picks one story at random, so waiting is different every time. Casual, light teasing. */
 const STORIES: readonly (readonly string[])[] = [
   [
-    "Aapki photo mil gayi, bas ek minute. Tab tak party ki thodi baatein sun lijiye 😄",
+    "Tumhari photo mil gayi, bas ek minute. Tab tak party ki thodi baatein suno 😄",
     "Pehle balloons phulaye. 20 phulaye, 3 phat gaye 🎈💥",
     "Phir cake laya. Dukaan wale bhaiya bole: 'Itna bada cake? Kisko khilana hai?' 🎂",
-    "Maine kaha: 'Poore parivar ko!' Aap bhi usme shamil hain 😊",
+    "Maine kaha: 'Poore parivar ko!' Tum bhi usme shamil ho 😊",
     "DJ ne gaana lagaya. Papa ne bola 'Band karo!' Phir khud nachne lage 💃",
-    "Idhar AI aapko background se alag kar raha hai. Dhyan rakhega, aapke kapde nahi katega ✂️",
+    "Idhar AI tumhe background se alag kar raha hai. Dhyan rakhega, tumhare kapde nahi katega ✂️",
     "Main sheeshe me baal theek kar raha hu. Haan, 18 ka hone ka asar hai 😎",
     "Candle jalayi, wish maangi. Wish bataunga nahi, warna poori nahi hogi 🤫",
-    "Bas, aap aur main ek frame me. Thoda sa aur sabr 🙏",
+    "Bas, tum aur main ek frame me. Thoda sa aur sabr 🙏",
   ],
   [
     "Ek zamane me main 1 saal ka tha. Sab bolte the 'kitna cute!' 👶",
     "Phir school gaya. Pehle din roya, doosre din bhi roya, teesre din dost mil gaye 🎒",
     "12th ki chemistry ne to sach me rula diya 🧪",
     "Ab 18 ka ho gaya hu. Vote bhi de sakta hu, tension bhi le sakta hu 🗳️",
-    "Aapki photo time machine me ghoom rahi hai ⏳",
+    "Tumhari photo time machine me ghoom rahi hai ⏳",
     "AI bol raha hai 'bhai itni mehnat?' 😂 Maine kaha: 'Kaam karo, jashn hai!'",
-    "Mere saath khade hone ki line lagi hai. Aap pehle number par hain 🎟️",
+    "Mere saath khade hone ki line lagi hai. Tum pehle number par ho 🎟️",
     "Ek second, collar theek kar lu 👔",
     "Time machine wapas aa rahi hai!",
   ],
   [
-    "Studio me aapka swagat hai! Aaj ka ek hi customer: aap 📸",
+    "Studio me swagat hai! Aaj ka ek hi customer: tum 📸",
     "Photographer (yaani main) ne light set kar di 💡",
-    "AI bola: 'Pehle background ko alvida kahiye' 👋",
+    "AI bola: 'Pehle background ko alvida bolo' 👋",
     "Dukaan wale uncle jaise bade logon ke saath photo banate hain na, waisi hi banegi 😄",
-    "Light match ho rahi hai. Aap thoda aur chamak rahe hain ✨",
-    "Aapke liye apne baju me jagah bana raha hu. Thoda adjust kar leta hu 🕺",
+    "Light match ho rahi hai. Tum thoda aur chamak rahe ho ✨",
+    "Tumhare liye apne baju me jagah bana raha hu. Thoda adjust kar leta hu 🕺",
     "Last touch... frame laga rahe hain 🖼️",
     "Bas tayyar hone hi wali hai!",
   ],
 ];
 
 const FILLERS: readonly string[] = [
-  "Thoda sa sabr kijiye. Sabr ka phal meetha hota hai, cake jaisa 🍰",
+  "Thoda sa sabr karo. Sabr ka phal meetha hota hai, cake jaisa 🍰",
   "Cake ne party me kya kaha? 'Mujhe kaat do!' 😆",
   "AI chai peene gaya tha, wapas aa gaya ☕",
   "Internet dheema hai kya? Koi baat nahi, main intezaar kar leta hu ⏳",
-  "Balloons phode kya? Neeche score dekhiye 😏",
-  "Tip: golden balloon phodiye, 5 points milenge 🌟",
+  "Balloons phode kya? Neeche score dekho 😏",
+  "Tip: golden balloon phodo, 5 points milenge 🌟",
   "Main yahin hu, kahin nahi ja raha. Photo aa rahi hai 🚀",
   "Itni der me to main do baar muskura leta 😁",
 ];
@@ -167,7 +167,7 @@ export function startFun(d: FunDeps): FunHandle {
     });
     popped += golden ? 5 : 1;
     d.score.textContent = `🎈 ${popped}`;
-    if (golden) d.say("GOLDEN balloon! +5 🌟 Waah, aap to pro nikle!");
+    if (golden) d.say("GOLDEN balloon! +5 🌟 Waah, tum to pro nikle!");
     window.setTimeout(() => b.remove(), 160);
   };
   const balloonStep = (): void => {

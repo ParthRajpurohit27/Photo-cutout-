@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Key check</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .kt { margin: 12px 0 0; padding: 14px 16px; border: 2px solid var(--line); border-radius: 16px; line-height: 1.45; word-break: break-word; }
+    .kt p { margin: 6px 0 0; font-weight: 700; }
+    .kt.ok { border-color: var(--green); }
+    .kt.bad { border-color: var(--red); color: #c23030; }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <h1>Gemini key check</h1>
+    <p id="keyinfo" style="text-align:center;color:var(--muted)"></p>
+    <button id="run" class="btn" type="button">Check karo</button>
+    <div id="out" class="kt"></div>
+  </main>
+  <script type="module" src="dist/keytest.js"></script>
+</body>
+</html>

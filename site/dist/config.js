@@ -1,5 +1,5 @@
 export const CONFIG = {
-    geminiApiKey: "AQ.Ab8RN6IOJ5bIeYB2kyOshcqX2VyBSbrJ4DLdtfiL-_U_ogSrqw",
+    geminiApiKey: "AQ.Ab8RN6IYzN-UNDJcUxzqY5yOBILxxeNKB7KD1Mj681y5bLWfhw",
     geminiModel: "gemini-2.5-flash-image",
     basePhoto: "photos/me.jpg",
     baseMaxSide: 3000,

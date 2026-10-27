@@ -4,30 +4,30 @@ import { CONFIG } from "./config.js";
 import { alphaBounds, blobToCanvas, canvasToBlob, cropCanvas, fitMax } from "./imaging.js";
 import { IMGLY_CONFIG, loadImgly, loadPose, preloadModel } from "./loaders.js";
 export async function buildComposite(file, base, rep) {
-    rep.enter("read", "Reading your photo…");
+    rep.enter("read", "Tumhari photo padh raha hu…");
     const bmp = await createImageBitmap(file, { imageOrientation: "from-image" });
     const src = fitMax(bmp, CONFIG.visitorMaxSide);
     bmp.close();
-    rep.enter("model", "Waking up the AI…");
+    rep.enter("model", "AI ko jaga raha hu…");
     await Promise.all([preloadModel(), loadPose()]);
     const imgly = await loadImgly();
-    rep.enter("segment", "Cutting you out of the background…");
+    rep.enter("segment", "Background hata raha hu…");
     const cutBlob = await imgly.removeBackground(await canvasToBlob(src, "image/jpeg", 0.92), IMGLY_CONFIG);
     const cutFull = await blobToCanvas(cutBlob);
     const bounds = alphaBounds(cutFull);
     if (!bounds)
-        throw new Error("No person found in the photo. Please upload a clearer photo of yourself.");
+        throw new Error("Photo me koi insaan nahi dikha. Koi saaf photo daalo.");
     let person = cropCanvas(cutFull, bounds);
-    rep.enter("analyze", "Checking how much of you is in the photo…");
+    rep.enter("analyze", "Dekh raha hu photo me kitni body aayi hai…");
     const info = await analyzeBody(src, bounds, cutFull.height);
     if (info.fullBody) {
         rep.skip("generate");
     }
     else {
-        rep.enter("generate", "Growing the missing part of the body…");
+        rep.enter("generate", "Neeche ka hissa bana raha hu…");
         person = await extendBody(person, info.visibleFraction, imgly);
     }
-    rep.enter("compose", "Matching light and standing you next to me…");
+    rep.enter("compose", "Roshni match karke tumhe mere saath khada kar raha hu…");
     const final = composeFinal(base, person);
     return await canvasToBlob(final, "image/jpeg", 0.95);
 }

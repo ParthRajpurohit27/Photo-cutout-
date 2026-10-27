@@ -95,6 +95,6 @@ export async function extendBody(person, visibleFraction, imgly) {
     const cut = await blobToCanvas(cutBlob);
     const b = alphaBounds(cut);
     if (!b)
-        throw new Error("Could not read the generated body. Please try again.");
+        throw new Error("Body ban nahi payi.");
     return cropCanvas(cut, b);
 }

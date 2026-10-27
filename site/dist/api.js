@@ -8,7 +8,7 @@ const PROMPT = "The top part of this image shows a real person (cut off at the b
 /** Sends the half-body image straight to Gemini; returns the generated full-body image. */
 export async function requestBody(imageBase64, mimeType) {
     if (!CONFIG.geminiApiKey || CONFIG.geminiApiKey === "PASTE_GEMINI_KEY_HERE") {
-        throw new Error("Gemini key is not set.");
+        throw new Error("Gemini key set nahi hai.");
     }
     let res;
     try {
@@ -32,7 +32,7 @@ export async function requestBody(imageBase64, mimeType) {
         data = (await res.json());
     }
     catch {
-        throw new Error("Invalid response from Gemini.");
+        throw new Error("Gemini ka jawab samajh nahi aaya.");
     }
     if (!res.ok)
         throw new Error(data.error?.message ?? `Body generation failed (${res.status}).`);
@@ -43,5 +43,5 @@ export async function requestBody(imageBase64, mimeType) {
             return await (await fetch(`data:${type};base64,${out}`)).blob();
         }
     }
-    throw new Error("No image returned.");
+    throw new Error("Gemini ne image nahi di.");
 }
