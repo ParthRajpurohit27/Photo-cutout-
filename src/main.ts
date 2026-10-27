@@ -39,12 +39,12 @@ type Mood = "idle" | "work" | "happy" | "sad";
 type StepState = "todo" | "active" | "done" | "skip";
 
 const STEPS: ReadonlyArray<{ id: StageId; text: string }> = [
-  { id: "read", text: "Teri photo padh raha hu" },
+  { id: "read", text: "Aapki photo padh raha hu" },
   { id: "model", text: "AI ko jagaya" },
   { id: "segment", text: "Background hata raha hu" },
   { id: "analyze", text: "Body check kar raha hu" },
   { id: "generate", text: "Neeche ki body bana raha hu" },
-  { id: "compose", text: "Tujhe mere saath khada kar raha hu" },
+  { id: "compose", text: "Aapko mere saath khada kar raha hu" },
 ];
 
 const stepNodes = new Map<StageId, HTMLLIElement>();
@@ -151,12 +151,12 @@ async function handleFile(file: File): Promise<void> {
   if (busy) return;
   if (!file.type.startsWith("image/")) {
     setMood("sad");
-    say("Ye image file nahi hai. Koi photo chuno.", true);
+    say("Ye image file nahi lag rahi. Kripya koi photo chuniye 🙏", true);
     return;
   }
   if (file.size > MAX_UPLOAD_BYTES) {
     setMood("sad");
-    say("Photo bahut badi hai (max 30 MB). Chhoti photo chuno.", true);
+    say("Photo bahut badi hai (max 30 MB). Kripya chhoti photo chuniye.", true);
     return;
   }
 
@@ -225,8 +225,8 @@ async function handleFile(file: File): Promise<void> {
     setMood("happy");
     say(
       score > 0
-        ? `Taaaa-daaa! 🎉 Photo ready hai. Aur tune ${score} balloons phode, champion! 🏆`
-        : "Taaaa-daaa! 🎉 Teri photo mere saath ready hai. Download dabao!",
+        ? `Taaaa-daaa! 🎉 Photo ready hai. Aur aapne ${score} balloons phode, champion! 🏆`
+        : "Taaaa-daaa! 🎉 Aapki photo mere saath ready hai. Download dabaiye!",
     );
     celebrate();
   } catch (err) {
@@ -234,7 +234,7 @@ async function handleFile(file: File): Promise<void> {
     const msg = err instanceof Error ? err.message : "Kuch gadbad ho gayi.";
     progressBox.hidden = true;
     setMood("sad");
-    say(`${msg} Dobara try karo.`, true);
+    say(`${msg} Kripya dobara try kijiye 🙏`, true);
   } finally {
     window.clearInterval(timer);
     stageEl.textContent = "";
