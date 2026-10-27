@@ -3,7 +3,7 @@ export interface SiteConfig {
   readonly geminiApiKey: string;
   readonly geminiModel: string;
 
-  /** Your fixed photo (kept in site/public/). */
+  /** Your fixed photo (kept in site/photos/). */
   readonly basePhoto: string;
   readonly baseMaxSide: number;
   readonly visitorMaxSide: number;
@@ -20,6 +20,11 @@ export interface SiteConfig {
   /** 0 = no colour matching, 1 = full. */
   readonly colorMatchStrength: number;
 
+  /** Background-removal model: "medium" = better edges, "small" = lighter download. */
+  readonly bgModel: "small" | "medium";
+  /** Rough download size used only for the first time estimate. */
+  readonly estimatedModelMb: number;
+
   readonly imglyUrl: string;
   readonly visionUrl: string;
   readonly visionWasmUrl: string;
@@ -27,7 +32,7 @@ export interface SiteConfig {
 }
 
 export const CONFIG: SiteConfig = {
-  geminiApiKey: "AQ.Ab8RN6IOJ5bleYB2kyOshcqX2VyBSbrJ4DLdtfiL-_U_ogSrqw",
+  geminiApiKey: "AQ.Ab8RN6IOJ5bIeYB2kyOshcqX2VyBSbrJ4DLdtfiL-_U_ogSrqw",
   geminiModel: "gemini-2.5-flash-image",
 
   basePhoto: "photos/me.jpg",
@@ -40,6 +45,9 @@ export const CONFIG: SiteConfig = {
   groundY: 0.955,
 
   colorMatchStrength: 0.6,
+
+  bgModel: "medium",
+  estimatedModelMb: 85,
 
   imglyUrl: "https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.5.5/+esm",
   visionUrl: "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/+esm",

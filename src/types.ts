@@ -1,5 +1,7 @@
 export interface ImglyRemoveConfig {
+  model?: "small" | "medium";
   output?: { format?: "image/png"; quality?: number };
+  progress?: (key: string, current: number, total: number) => void;
 }
 
 export interface ImglyModule {
@@ -44,4 +46,10 @@ export interface GenerateResponse {
   error?: string;
 }
 
-export type Report = (message: string, percent: number) => void;
+export type StageId = "read" | "model" | "segment" | "analyze" | "generate" | "compose";
+
+/** What the pipeline tells the UI while it works. */
+export interface Reporter {
+  enter(stage: StageId, label: string): void;
+  skip(stage: StageId): void;
+}
